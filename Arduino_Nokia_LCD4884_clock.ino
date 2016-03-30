@@ -278,13 +278,13 @@ void clockTiming(){
       if(secs >59){ 
         secs = 0;
         mins = mins +1;
-        if(mins > 59){
+      }
+      if(mins > 59){
           hrs = hrs+1;
-        }
-        if(hrs >23){
-          hrs = 0;
           mins = 0;
-        }
+      }
+      if(hrs >23){
+        hrs = 0;
       }
     }
   }
