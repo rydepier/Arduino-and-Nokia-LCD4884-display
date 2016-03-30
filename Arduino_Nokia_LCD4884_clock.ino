@@ -37,7 +37,7 @@ int hrs = 0; // current hour
 int mins = 0; // current minute
 int secs = 1; // current second
 //char zero[1] ; //used
-/********************************************************/
+/*********************************************************/
 
 void setup() {
  Serial.begin(9600);
