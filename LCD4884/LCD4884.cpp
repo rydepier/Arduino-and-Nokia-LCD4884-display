@@ -8,7 +8,7 @@ E-mail: Lauran.pan@gmail.com
 Editor     : Lauren from DFRobot
 Date       : 06.01.2012
 
-=¡£=
+=oã€‚=
 
 * Have the back light under control.
 * Update the library and sketch to compatible with IDE V1.0 and earlier
@@ -57,7 +57,7 @@ void LCD4884::LCD_init(void)
 	delayMicroseconds(1);
 	digitalWrite(LCD_RST,HIGH);
 	
-	digitalWrite(SPI_CS,LOW);  //Chip Select,Slave Transmit Enable(active low,Master Output)µÍµçÆ½ÓĞĞ§
+	digitalWrite(SPI_CS,LOW);  //Chip Select,Slave Transmit Enable(active low,Master Output)ä½ç”µå¹³æœ‰æ•ˆ
 	delayMicroseconds(1);
 	digitalWrite(SPI_CS,HIGH);
 	delayMicroseconds(1);
@@ -76,30 +76,30 @@ void LCD4884::LCD_init(void)
 	digitalWrite(SPI_CS,LOW);
 }
 
-//¶ÁÈ¡ÕâÒ»×Ö½ÚµÄ8Î»Êı×Ö£¬²¢ÓÉ data_type ÅĞ¶ÏÕâÒ»×Ö½Ú´ú±í¶ÁÊı¾İ»¹ÊÇ¶ÁÖ¸Áî
+//è¯»å–è¿™ä¸€å­—èŠ‚çš„8ä½æ•°å­—ï¼Œå¹¶ç”± data_type åˆ¤æ–­è¿™ä¸€å­—èŠ‚ä»£è¡¨è¯»æ•°æ®è¿˜æ˜¯è¯»æŒ‡ä»¤
 void LCD4884::LCD_write_byte(unsigned char dat, unsigned char dat_type)
 {
     unsigned int i;
 	digitalWrite(SPI_CS,LOW);//Chip Enable:Active LOW
 
-	//ÅĞ¶ÏÊÇ¶ÁÊı¾İ»¹ÊÇ¶ÁÖ¸Áî
+	//åˆ¤æ–­æ˜¯è¯»æ•°æ®è¿˜æ˜¯è¯»æŒ‡ä»¤
     if (dat_type == 0)	digitalWrite(LCD_DC,LOW);// D/C=0:the current data byte is interpreted as command byte
     else	digitalWrite(LCD_DC,HIGH);// D/C=1:write data to display RAM
 
-	//ÒÀ´Î¶ÁÈ¡8Î»dataÖĞµÄÃ¿Ò»Î»Êı¾İ
+	//ä¾æ¬¡è¯»å–8ä½dataä¸­çš„æ¯ä¸€ä½æ•°æ®
 	for(i=0;i<8;i++) 
 	{ 
 		if(dat&0x80) //1000 0000 
 		{
-			digitalWrite(SPI_MOSI,HIGH);//¶ÁÈ¡µÄÕâÒ»Î»Êı×ÖÊÇ1
+			digitalWrite(SPI_MOSI,HIGH);//è¯»å–çš„è¿™ä¸€ä½æ•°å­—æ˜¯1
 		}
 		else 
 		{
-			digitalWrite(SPI_MOSI,LOW);//¶ÁÈ¡µÄÕâÒ»Î»Êı×ÖÊÇ0
+			digitalWrite(SPI_MOSI,LOW);//è¯»å–çš„è¿™ä¸€ä½æ•°å­—æ˜¯0
 		} 
 		digitalWrite(SPI_SCK,LOW);
 		dat = dat << 1; 
-		digitalWrite(SPI_SCK,HIGH);//ÔÚÊ±ÖÓÉÏÉıÑØÓĞĞ§¶ÁÈ¡ÕâÒ»Î»Êı×Ö
+		digitalWrite(SPI_SCK,HIGH);//åœ¨æ—¶é’Ÿä¸Šå‡æ²¿æœ‰æ•ˆè¯»å–è¿™ä¸€ä½æ•°å­—
 	} 
 	digitalWrite(SPI_CS,HIGH);
 }
@@ -223,12 +223,12 @@ void LCD4884::LCD_write_char(unsigned char c, char mode)
     unsigned char *pFont;
     byte ch; 
     
-    pFont = (unsigned char *)font6_8;//pointer *pFont points at font6_8[][6](È¡Ê×µØÖ·£©
+    pFont = (unsigned char *)font6_8;//pointer *pFont points at font6_8[][6](å–é¦–åœ°å€ï¼‰
     c -= 32;// the ASCII of "SP" is 32
 
     for (line=0; line<6; line++){
     ch = pgm_read_byte(pFont+c*6+line); //pgm_read_byte(address_short),read c from the font6_8[][6](the detail information is in the "font6x8.h")
-    LCD_write_byte( (mode==MENU_NORMAL)? ch: (ch^ 0xff) , 1);//MENU_NORMAL=0,True:return ch;False:return ch^0xff(°´Î»Òì»ò£©
+    LCD_write_byte( (mode==MENU_NORMAL)? ch: (ch^ 0xff) , 1);//MENU_NORMAL=0,True:return ch;False:return ch^0xff(æŒ‰ä½å¼‚æˆ–ï¼‰
     }
 }
 
