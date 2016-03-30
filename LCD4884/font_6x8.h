@@ -1,5 +1,5 @@
 // 6 x 8 font
-// 1 pixel space at left and bottom
+// 1 pixel space at left and bottom 
 // index = ASCII - 32
 #include <avr/pgmspace.h>
 
