@@ -8,7 +8,7 @@ E-mail: Lauran.pan@gmail.com
 Editor     : Lauren from DFRobot
 Date       : 06.01.2012
 
-=¡£=
+=Â¡Â£ =
 
 * Have the back light under control.
 * Update the library and sketch to compatible with IDE V1.0 and earlier
